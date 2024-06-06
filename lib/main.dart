@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:markidea/screens/root.dart';
+import 'package:markidea/screens/welcome.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,13 +11,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      title: 'Markidea',
+      initialRoute: '/welcome',
+      routes: <String, WidgetBuilder>{
+        '/welcome': (BuildContext context) => const AppWelcome(),
+        '/root': (BuildContext context) => const AppRoot(),
+      },
     );
   }
 }
